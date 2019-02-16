@@ -1,0 +1,110 @@
+irun(64): 15.20-s051: (c) Copyright 1995-2018 Cadence Design Systems, Inc.
+TOOL:	irun(64)	15.20-s051: Started on Feb 16, 2019 at 19:51:10 IST
+irun
+	-access +rwc
+	fft16_radix4_top.v
+	fft16_radix4_top_tb.v
+Recompiling... reason: file './fft16_radix4_top.v' is newer than expected.
+	expected: Sat Feb 16 19:44:23 2019
+	actual:   Sat Feb 16 19:45:18 2019
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		fft16_radix4_top_tb
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                Instances  Unique
+		Modules:                6       6
+		Registers:            118     118
+		Scalar wires:           3       -
+		Expanded wires:      2560      96
+		Vectored wires:       100       -
+		Always blocks:          5       5
+		Initial blocks:         4       4
+		Cont. assignments:    130      10
+		Pseudo assignments:     5       5
+	Writing initial simulation snapshot: worklib.fft16_radix4_top_tb:v
+Loading snapshot worklib.fft16_radix4_top_tb:v .................... Done
+ncsim> source /tools/cadence/INCISIVE152/tools/inca/files/ncsimrc
+ncsim> run
+
+========== INPUT BUFFER CONTENTS ==========
+Address 0 : Real = 0, Imag = 0
+Address 1 : Real = 1, Imag = 0
+Address 2 : Real = 2, Imag = 0
+Address 3 : Real = 3, Imag = 0
+Address 4 : Real = 4, Imag = 0
+Address 5 : Real = 5, Imag = 0
+Address 6 : Real = 6, Imag = 0
+Address 7 : Real = 7, Imag = 0
+Address 8 : Real = 8, Imag = 0
+Address 9 : Real = 9, Imag = 0
+Address 10 : Real = 10, Imag = 0
+Address 11 : Real = 11, Imag = 0
+Address 12 : Real = 12, Imag = 0
+Address 13 : Real = 13, Imag = 0
+Address 14 : Real = 14, Imag = 0
+Address 15 : Real = 15, Imag = 0
+
+========== STAGE1 BUTTERFLY OUTPUTS ==========
+Index 0 : Real = 24, Imag = 0
+Index 1 : Real = -8, Imag = 8
+Index 2 : Real = -8, Imag = 0
+Index 3 : Real = -8, Imag = -8
+Index 4 : Real = 28, Imag = 0
+Index 5 : Real = -8, Imag = 8
+Index 6 : Real = -8, Imag = 0
+Index 7 : Real = -8, Imag = -8
+Index 8 : Real = 32, Imag = 0
+Index 9 : Real = -8, Imag = 8
+Index 10 : Real = -8, Imag = 0
+Index 11 : Real = -8, Imag = -8
+Index 12 : Real = 36, Imag = 0
+Index 13 : Real = -8, Imag = 8
+Index 14 : Real = -8, Imag = 0
+Index 15 : Real = -8, Imag = -8
+
+========== STAGE1 BUFFER OUTPUTS ==========
+Index 0 : Real = 24, Imag = 0
+Index 1 : Real = -8, Imag = 8
+Index 2 : Real = -8, Imag = 0
+Index 3 : Real = -8, Imag = -8
+Index 4 : Real = 28, Imag = 0
+Index 5 : Real = -8, Imag = 8
+Index 6 : Real = -8, Imag = 0
+Index 7 : Real = -8, Imag = -8
+Index 8 : Real = 32, Imag = 0
+Index 9 : Real = -8, Imag = 8
+Index 10 : Real = -8, Imag = 0
+Index 11 : Real = -8, Imag = -8
+Index 12 : Real = 36, Imag = 0
+Index 13 : Real = -8, Imag = 8
+Index 14 : Real = -8, Imag = 0
+Index 15 : Real = -8, Imag = -8
+
+========== FINAL FFT OUTPUTS (STAGE2) ==========
+X(0) = 119.9963 + 0.0000j
+X(1) = -7.9998 + 40.2180j
+X(2) = -7.9998 + 19.3132j
+X(3) = -7.9998 + 11.9734j
+X(4) = -7.9998 + 7.9998j
+X(5) = -7.9998 + 5.3459j
+X(6) = -7.9998 + 3.3137j
+X(7) = -7.9998 + 1.5916j
+X(8) = -7.9998 + 0.0000j
+X(9) = -7.9998 - 1.5916j
+X(10) = -7.9998 - 3.3137j
+X(11) = -7.9998 - 5.3459j
+X(12) = -7.9998 - 7.9998j
+X(13) = -7.9998 - 11.9734j
+X(14) = -7.9998 - 19.3132j
+X(15) = -7.9998 - 40.2180j
+====================================================
+
+Simulation complete via $finish(1) at time 535 NS + 0
+./fft16_radix4_top_tb.v:116     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s051: Exiting on Feb 16, 2019 at 19:51:10 IST  (total: 00:00:00)
