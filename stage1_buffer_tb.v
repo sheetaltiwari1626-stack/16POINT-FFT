@@ -2,7 +2,6 @@ module stage1_buffer_tb;
     parameter WIDTH = 16;
     integer i;
 
-    // Declare individual inputs
     reg signed [WIDTH-1:0] xr_in0, xr_in1, xr_in2, xr_in3;
     reg signed [WIDTH-1:0] xr_in4, xr_in5, xr_in6, xr_in7;
     reg signed [WIDTH-1:0] xr_in8, xr_in9, xr_in10, xr_in11;
@@ -13,7 +12,6 @@ module stage1_buffer_tb;
     reg signed [WIDTH-1:0] xi_in8, xi_in9, xi_in10, xi_in11;
     reg signed [WIDTH-1:0] xi_in12, xi_in13, xi_in14, xi_in15;
 
-    // Wires for outputs from stage1_butterfly_all
     wire signed [WIDTH-1:0] yr_stage1_0, yr_stage1_1, yr_stage1_2, yr_stage1_3;
     wire signed [WIDTH-1:0] yr_stage1_4, yr_stage1_5, yr_stage1_6, yr_stage1_7;
     wire signed [WIDTH-1:0] yr_stage1_8, yr_stage1_9, yr_stage1_10, yr_stage1_11;
@@ -24,7 +22,6 @@ module stage1_buffer_tb;
     wire signed [WIDTH-1:0] yi_stage1_8, yi_stage1_9, yi_stage1_10, yi_stage1_11;
     wire signed [WIDTH-1:0] yi_stage1_12, yi_stage1_13, yi_stage1_14, yi_stage1_15;
 
-    // Wires for buffer outputs
     wire signed [WIDTH-1:0] yr_buf_0, yr_buf_1, yr_buf_2, yr_buf_3;
     wire signed [WIDTH-1:0] yr_buf_4, yr_buf_5, yr_buf_6, yr_buf_7;
     wire signed [WIDTH-1:0] yr_buf_8, yr_buf_9, yr_buf_10, yr_buf_11;
@@ -35,7 +32,6 @@ module stage1_buffer_tb;
     wire signed [WIDTH-1:0] yi_buf_8, yi_buf_9, yi_buf_10, yi_buf_11;
     wire signed [WIDTH-1:0] yi_buf_12, yi_buf_13, yi_buf_14, yi_buf_15;
 
-    // Instantiate Stage-1 Butterfly
     stage1_butterfly_all #(WIDTH) stage1_bf (
         .xr_in0(xr_in0), .xr_in1(xr_in1), .xr_in2(xr_in2), .xr_in3(xr_in3),
         .xr_in4(xr_in4), .xr_in5(xr_in5), .xr_in6(xr_in6), .xr_in7(xr_in7),
@@ -58,7 +54,6 @@ module stage1_buffer_tb;
         .yi_out12(yi_stage1_12), .yi_out13(yi_stage1_13), .yi_out14(yi_stage1_14), .yi_out15(yi_stage1_15)
     );
 
-    // Instantiate Stage-1 Buffer
     stage1_buffer #(WIDTH) buf_inst (
         .yr_in0(yr_stage1_0), .yr_in1(yr_stage1_1), .yr_in2(yr_stage1_2), .yr_in3(yr_stage1_3),
         .yr_in4(yr_stage1_4), .yr_in5(yr_stage1_5), .yr_in6(yr_stage1_6), .yr_in7(yr_stage1_7),
@@ -80,10 +75,7 @@ module stage1_buffer_tb;
         .yi_out8(yi_buf_8), .yi_out9(yi_buf_9), .yi_out10(yi_buf_10), .yi_out11(yi_buf_11),
         .yi_out12(yi_buf_12), .yi_out13(yi_buf_13), .yi_out14(yi_buf_14), .yi_out15(yi_buf_15)
     );
-
-    // Stimulus
     initial begin
-        // Assign some test data
         xr_in0=0; xr_in1=1; xr_in2=2; xr_in3=3;
         xr_in4=4; xr_in5=5; xr_in6=6; xr_in7=7;
         xr_in8=8; xr_in9=9; xr_in10=10; xr_in11=11;
@@ -92,7 +84,6 @@ module stage1_buffer_tb;
         xi_in4=0; xi_in5=0; xi_in6=0; xi_in7=0;
         xi_in8=0; xi_in9=0; xi_in10=0; xi_in11=0;
         xi_in12=0; xi_in13=0; xi_in14=0; xi_in15=0;
-
         #5;
         $display("\n--- Stage1 Buffer Output ---");
         $display("yr_buf_0=%d yi_buf_0=%d", yr_buf_0, yi_buf_0);
