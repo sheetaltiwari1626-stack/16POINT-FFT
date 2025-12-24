@@ -3,8 +3,6 @@ module twiddle_factor #(parameter WIDTH = 16)(
     output reg  signed [WIDTH-1:0] wr, // Real part (cos)
     output reg  signed [WIDTH-1:0] wi  // Imag part (-sin)
 );
-    // Scaled Q1.15 fixed-point values for cos/sin
-    // Multiply float * 32767 and round to nearest integer
     always @(*) begin
         case (addr)
             4'd0:  begin wr = 16'sd32767;  wi = 16'sd0;      end  // 1 + j0
