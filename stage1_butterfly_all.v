@@ -32,7 +32,6 @@ module stage1_butterfly_all #(parameter WIDTH=16)(
     reg signed [WIDTH-1:0] yi0, yi1, yi2, yi3;
 
     always @(*) begin
-        // Load inputs into arrays for easy indexing
         xr[0]=xr_in0;  xr[1]=xr_in1;  xr[2]=xr_in2;  xr[3]=xr_in3;
         xr[4]=xr_in4;  xr[5]=xr_in5;  xr[6]=xr_in6;  xr[7]=xr_in7;
         xr[8]=xr_in8;  xr[9]=xr_in9;  xr[10]=xr_in10; xr[11]=xr_in11;
