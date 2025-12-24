@@ -10,8 +10,7 @@ module stage2_butterfly_rounded_tb;
     reg signed [OUTW-1:0] tmpr, tmpi;
     real real_r, real_i;
     integer i;
-
-    // DUT
+    
     stage2_butterfly_rounded #(INW, OUTW) dut (
         .xr_in_flat(xr_in_flat),
         .xi_in_flat(xi_in_flat),
@@ -19,7 +18,6 @@ module stage2_butterfly_rounded_tb;
         .yi_out_flat(yi_out_flat)
     );
 
-    // set Stage1 buffer outputs
     task set_input;
         input integer idx;
         input integer r, im;
@@ -30,10 +28,9 @@ module stage2_butterfly_rounded_tb;
     endtask
 
     initial begin
-        // clear
         xr_in_flat = 0; xi_in_flat = 0;
 
-        // Stage1 buffer outputs (example)
+        // Stage1 buffer outputs
         set_input(0,  24, 0);
         set_input(1,  -8, 8);
         set_input(2,  -8, 0);
