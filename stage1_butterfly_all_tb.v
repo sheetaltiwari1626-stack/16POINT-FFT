@@ -39,22 +39,18 @@ initial begin
     xr_in[12]=12;xr_in[13]=13;xr_in[14]=14;xr_in[15]=15;
     for (i=0; i<16; i=i+1)
         xi_in[i]=0;
-
     #10;
-
     $display("\n==================== Stage1 Butterfly Outputs (All Groups) ====================");
     for (i=0; i<16; i=i+1)
         $display("Index %0d : Real = %0d , Imag = %0d", i, yr_out[i], yi_out[i]);
     $display("=============================================================================");
     $finish;
 end
-
 initial begin
     $shm_open("wave.shm");
     $shm_probe("ACTIMF");
     #2000;
     $finish;
 end
-
 endmodule
 
