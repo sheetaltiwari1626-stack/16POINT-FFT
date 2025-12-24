@@ -26,11 +26,9 @@ module input_buffer_tb;
 
     integer i;
 
-    // User input array (editable)
     reg signed [WIDTH-1:0] user_input [0:N-1];
 
     initial begin
-        // ?? You can freely edit these 16 input values
         user_input[0]  =  0;
         user_input[1]  =  1;
         user_input[2]  =  2;
