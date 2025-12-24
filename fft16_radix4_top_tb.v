@@ -3,7 +3,6 @@ module fft16_radix4_top_tb;
   parameter WIDTH = 16;
   parameter OUTW = 48;
 
-  // Testbench signals
   reg clk, rst, load;
   reg [3:0] addr_in;
   reg signed [WIDTH-1:0] xr_in;
@@ -16,7 +15,6 @@ module fft16_radix4_top_tb;
   reg signed [OUTW-1:0] yr_temp, yi_temp;
   real out_r, out_i;
 
-  // DUT instantiation
   fft16_radix4_top #(
     .N(N),
     .WIDTH(WIDTH),
@@ -33,19 +31,15 @@ module fft16_radix4_top_tb;
     .yi_stage2_flat(yi_stage2_flat)
   );
 
-  // Clock generation
   initial clk = 0;
   always #5 clk = ~clk;
 
-  // Main test sequence
   initial begin
-    // Initialize signals
     rst = 1;
     load = 0;
     addr_in = 0;
     xr_in = 0;
     
-    // Initialize input data
     user_input[0] = 0;
     user_input[1] = 1;
     user_input[2] = 2;
@@ -62,11 +56,9 @@ module fft16_radix4_top_tb;
     user_input[13] = 13;
     user_input[14] = 14;
     user_input[15] = 15;
-    
     #10 rst = 0;
     #10;
     
-    // Load samples
     for (i = 0; i < N; i = i + 1) begin
       @(posedge clk);
       addr_in = i;
@@ -75,9 +67,7 @@ module fft16_radix4_top_tb;
       @(posedge clk);
       load = 0;
     end
-    
     #100;
-    
     // Display results
     $display("\n========== INPUT BUFFER CONTENTS ==========");
     for (i = 0; i < N; i = i + 1) begin
@@ -115,12 +105,9 @@ module fft16_radix4_top_tb;
     #100;
     $finish;
   end
-
-  // Waveform dump
   initial begin
     $shm_open("wave.shm");
     $shm_probe("ACTMF");
   end
-
 endmodule
 
